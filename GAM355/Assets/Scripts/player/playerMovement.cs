@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
     Transform playerbase;
     [SerializeField]
     LayerMask encounter;
+    [SerializeField]
+    LayerMask Collision;
     Vector3 targetPosition; //Inital targetposition we want to move to once we're done moving, which is 1f
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
@@ -43,7 +45,7 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             //Moves in respect to gameObject's current facing direction
-            if (!Physics.Raycast(transform.position, transform.forward, rayLength))
+            if (!Physics.Raycast(transform.position, transform.forward, rayLength, Collision))
             {
                 targetPosition = transform.position + transform.rotation * Vector3.forward;
                 startPosition = transform.position;
@@ -53,7 +55,7 @@ public class playerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.S))
         {
 
-            if (!Physics.Raycast(transform.position, -transform.forward, rayLength))
+            if (!Physics.Raycast(transform.position, -transform.forward, rayLength, Collision))
             {
                 targetPosition = transform.position + transform.rotation * Vector3.back;
                 startPosition = transform.position;
@@ -63,7 +65,7 @@ public class playerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A))
         {
 
-            if (!Physics.Raycast(transform.position, -transform.right, rayLength))
+            if (!Physics.Raycast(transform.position, -transform.right, rayLength, Collision))
             {
                 targetPosition = transform.position + transform.rotation * Vector3.left;
                 startPosition = transform.position;
@@ -73,7 +75,7 @@ public class playerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.D))
         {
 
-            if (!Physics.Raycast(transform.position, transform.right, rayLength))
+            if (!Physics.Raycast(transform.position, transform.right, rayLength, Collision))
             {
                 targetPosition = transform.position + transform.rotation * Vector3.right;
                 startPosition = transform.position;
