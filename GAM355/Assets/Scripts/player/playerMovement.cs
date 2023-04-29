@@ -92,8 +92,9 @@ public class playerMovement : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0f, 90, 0);
 
         }
-    } //Player movement/ Collision functionality 
-   private void CheckforEncounters() //Random encounter method
+    } 
+
+    public void CheckforEncounters() //Random encounter method
     {
         int random = Random.Range(1, 101);
         if (random <= 10)
@@ -101,6 +102,6 @@ public class playerMovement : MonoBehaviour
             Debug.Log("Entity Encountered");
         }
     }
-    
-       
+
+
 }
