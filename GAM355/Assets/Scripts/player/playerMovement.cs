@@ -21,14 +21,16 @@ public class playerMovement : MonoBehaviour
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if we are in motion
+   
 
     void Update()
     {
         movePlayer();
+       
     }
     
 
-    public void movePlayer()
+    public void movePlayer() //Player movement controller
     {
         if (moving)
         {
@@ -99,6 +101,7 @@ public class playerMovement : MonoBehaviour
         int random = Random.Range(1, 101);
         if (random <= 10)
         {
+           ScenesManager.instance.LoadNextScene();
             Debug.Log("Entity Encountered");
         }
     }
