@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, DEFEAT} //game states
+public enum BattleState { START, PLAYERTURN, WAITING, ENEMYTURN, WIN, DEFEAT} //game states
 public class battleState : MonoBehaviour
 {
     public GameObject playerPrefab;
@@ -44,8 +45,62 @@ public class battleState : MonoBehaviour
         playerAction();
     }
 
+    IEnumerator PlayerAttack() //Damage enemy 
+    {
+        state = BattleState.WAITING;
+        bool IsDead = enemyUnit.TakeDamage(playerUnit.damage);
+
+        if (IsDead)
+        {
+            state = BattleState.WIN;
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+        yield return new WaitForSeconds(2f);
+        state = BattleState.ENEMYTURN; //Immediately set flag to enemy's turn 
+    }
+
+    IEnumerator EnemyTurn() //logic for enemy 
+    {
+        //Text variable goes here
+        yield return new WaitForSeconds(2f);
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage); 
+        playerUI.setHP(playerUnit.currentHP);
+        yield return new WaitForSeconds(2f);
+        if (isDead)
+        {
+            state = BattleState.DEFEAT;
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.PLAYERTURN;
+            PlayerAttack();
+        }
+    }
+
+
+    void EndBattle() //End battle function
+    {
+        Debug.Log("Win");
+    }
     void playerAction()
     {
 
     }
+
+    public void onAttackButton()
+    {
+        if (state!= BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        StartCoroutine(PlayerAttack());
+    }
+
+
 }

@@ -9,4 +9,18 @@ public class Unit : MonoBehaviour
     public int damage;
     public int maxHP;
     public int currentHP;
+
+    public bool TakeDamage (int dmg) //allows enemy to take damage
+    {
+        currentHP -= dmg;
+
+        if (currentHP <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
