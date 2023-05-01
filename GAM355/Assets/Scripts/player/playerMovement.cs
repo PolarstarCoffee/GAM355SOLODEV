@@ -21,12 +21,16 @@ public class playerMovement : MonoBehaviour
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if we are in motion
+    public static Vector3 playerPos; 
    
 
     void Update()
     {
         movePlayer();
-       
+        //PlayerPrefs.SetFloat("X", playerPos.x);//stores x pos
+        //PlayerPrefs.SetFloat("Y", playerPos.y);//stores y pos
+        //PlayerPrefs.SetFloat("Z", playerPos.z);//stores z pos
+
     }
     
 
@@ -101,8 +105,10 @@ public class playerMovement : MonoBehaviour
         int random = Random.Range(1, 101);
         if (random <= 10)
         {
-           ScenesManager.instance.LoadNextScene();
+            Vector3 tempPos = transform.position; //stores player's last position before scene transition transition
             Debug.Log("Entity Encountered");
+            ScenesManager.instance.LoadNextScene();
+            
         }
     }
 
