@@ -10,6 +10,7 @@ public class battleState : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public Sprite enemySprite;
 
     public Transform enemyStation1;
     public Transform enemyStation2;
@@ -53,7 +54,7 @@ public class battleState : MonoBehaviour
         if (IsDead)
         {
             state = BattleState.WIN;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -73,8 +74,10 @@ public class battleState : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (isDead)
         {
+            yield return new WaitForSeconds(1f);
+            Destroy(enemySprite);
             state = BattleState.DEFEAT;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -84,8 +87,11 @@ public class battleState : MonoBehaviour
     }
 
 
-    void EndBattle() //End battle function
+    IEnumerator EndBattle() //End battle method
     {
+        yield return new WaitForSeconds(2f);
+        //loads last scene 
+        ScenesManager.instance.LoadLastScene();
         Debug.Log("Win");
     }
     void playerAction()

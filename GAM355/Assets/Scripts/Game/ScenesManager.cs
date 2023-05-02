@@ -39,6 +39,13 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+
+    //Load previous scene method (scene index reduction)
+    public void LoadLastScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     //Loads main menu scene 
     public void LoadMainMenu()
     {

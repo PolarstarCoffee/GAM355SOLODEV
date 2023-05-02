@@ -21,8 +21,8 @@ public class playerMovement : MonoBehaviour
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if we are in motion
-    public static Vector3 playerPos; 
-   
+    public static Vector3 playerPos;
+
 
     void Update()
     {
