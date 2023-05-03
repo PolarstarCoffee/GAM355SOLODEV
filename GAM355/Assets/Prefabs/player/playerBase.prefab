@@ -183,8 +183,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 12
   rotationSpeed: 500
-  rayLength: 0.8
+  rayLength: 0.9
   playerbase: {fileID: 3602501907672221202}
   encounter:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  Collision:
+    serializedVersion: 2
+    m_Bits: 128
