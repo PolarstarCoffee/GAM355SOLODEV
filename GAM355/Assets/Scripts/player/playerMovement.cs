@@ -21,20 +21,22 @@ public class playerMovement : MonoBehaviour
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if player is in motion
-    Vector3 lastPos;
+    public static Vector3 lastPos;
+    public static Vector3 firstPos;
 
-
+   
     private void Start()
     {
+        firstPos = transform.position;
+        if (transform.position != firstPos)
+        {
+            loadLastPos();
+        }
         
     }
     void Update()
     {
         movePlayer();
-        //PlayerPrefs.SetFloat("X", playerPos.x);//stores x pos
-        //PlayerPrefs.SetFloat("Y", playerPos.y);//stores y pos
-        //PlayerPrefs.SetFloat("Z", playerPos.z);//stores z pos
-
     }
     
 
@@ -109,11 +111,26 @@ public class playerMovement : MonoBehaviour
         int random = Random.Range(1, 101);
         if (random <= 10)
         {
-          
+            
+            LastPosition();
             Debug.Log("Entity Encountered");
             ScenesManager.instance.LoadNextScene();   
         }
     }
 
+    void LastPosition() //method to store player's last location before switching scenes using PlayerPrefs
+    {
+        PlayerPrefs.SetFloat("X", lastPos.x);//stores x pos
+        PlayerPrefs.SetFloat("Y", lastPos.y);//stores y pos
+        PlayerPrefs.SetFloat("Z", lastPos.z);//stores z pos
+        PlayerPrefs.Save();
+    }
+    void loadLastPos() //loads last player Position
+    {
+        float xpos = PlayerPrefs.GetFloat("X");
+        float ypos = PlayerPrefs.GetFloat("Y");
+        float zpos = PlayerPrefs.GetFloat("Z");
+        transform.position = new Vector3(xpos, ypos, zpos);
+    }
 
 }
