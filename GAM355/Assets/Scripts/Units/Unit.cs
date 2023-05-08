@@ -23,4 +23,9 @@ public class Unit : MonoBehaviour
             return false;
         }
     }
+
+    public void Defend (int dmg) //allows Unit to defend themselves
+    {
+        currentHP -= dmg / 4;
+    }
 }

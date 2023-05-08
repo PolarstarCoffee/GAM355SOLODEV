@@ -65,12 +65,43 @@ public class battleState : MonoBehaviour
         state = BattleState.ENEMYTURN; //Immediately set flag to enemy's turn 
     }
 
+    IEnumerator playerDefend() //player defend functionality
+    {
+        yield return new WaitForSeconds(1f);
+        state = BattleState.WAITING;
+        playerUnit.Defend(enemyUnit.damage);
+        Debug.Log(playerUnit.currentHP);
+        yield return new WaitForSeconds(1f);
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+
+    IEnumerator playerFlee() //player Flee functionality 
+    {
+        int random = Random.Range(1, 101);
+        if (random <= 10)
+        {
+            yield return new WaitForSeconds(1f);
+            state = BattleState.WAITING;
+            Debug.Log("Successfully Escaped");
+            ScenesManager.instance.LoadLastScene();
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+            Debug.Log("Failed to Escape");
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+    }
+
     IEnumerator EnemyTurn() //logic for enemy 
     {
         //Text variable goes here
         yield return new WaitForSeconds(2f);
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage); 
         playerUI.setHP(playerUnit.currentHP);
+        Debug.Log(playerUnit.currentHP);
         yield return new WaitForSeconds(2f);
         if (isDead)
         {
@@ -106,6 +137,24 @@ public class battleState : MonoBehaviour
             return;
         }
         StartCoroutine(PlayerAttack());
+    }
+
+    public void onFleeButton()
+    {
+      if (state!= BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        StartCoroutine(playerFlee());
+    }
+
+    public void onDefendButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        StartCoroutine(playerDefend());
     }
 
 
