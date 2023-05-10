@@ -8,14 +8,21 @@ public class battleUI : MonoBehaviour
 {
 
     public TextMeshProUGUI nameText; //Player text
+    public TextMeshProUGUI HPText; //HP text reference
+    public battleState state; //battleState ref
+    public TextMeshProUGUI stateText;
     public void setHUD(Unit unit) //sets our UI 
     {
         nameText.text = unit.unitName;
     }
 
 
-    public void setHP(int hp)
+    public void setHP(Unit unit)
     {
-
+        
+    }
+    public void setState()
+    {
+        stateText.text = state.turnState.ToString();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public enum BattleState { START, PLAYERTURN, WAITING, ENEMYTURN, WIN, DEFEAT} //game states
+public enum TurnState { START, PLAYERTURN, WAITING, ENEMYTURN, WIN, DEFEAT} //game turnStates
 public class battleState : MonoBehaviour
 {
     public GameObject playerPrefab;
@@ -15,6 +15,8 @@ public class battleState : MonoBehaviour
     public Transform enemyStation1;
     public Transform enemyStation2;
     public Transform enemyStation3;
+    public battleUI ui;
+    
 
     Unit playerUnit;
     Unit enemyUnit;
@@ -22,12 +24,13 @@ public class battleState : MonoBehaviour
     public battleUI playerUI;
 
 
-    public BattleState state;
+    public TurnState turnState;
   
     void Start()
     {
-        state = BattleState.START;
+        turnState = TurnState.START;
         StartCoroutine(SetupBattle());
+        ui.setState();
     }
 
     IEnumerator SetupBattle()
@@ -42,39 +45,41 @@ public class battleState : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        state = BattleState.PLAYERTURN;
+        turnState = TurnState.PLAYERTURN;
         playerAction();
     }
 
     IEnumerator PlayerAttack() //Damage enemy 
     {
-        state = BattleState.WAITING;
+        turnState = TurnState.WAITING;
         bool IsDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         if (IsDead)
         {
-            state = BattleState.WIN;
+            turnState = TurnState.WIN;
             StartCoroutine(EndBattle());
         }
         else
         {
-            state = BattleState.ENEMYTURN;
+            turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
         yield return new WaitForSeconds(2f);
-        state = BattleState.ENEMYTURN; //Immediately set flag to enemy's turn 
+        turnState = TurnState.ENEMYTURN; //Immediately set flag to enemy's turn 
     }
 
+    /*
     IEnumerator playerDefend() //player defend functionality
     {
         yield return new WaitForSeconds(1f);
-        state = BattleState.WAITING;
+        turnState = TurnState.WAITING;
         playerUnit.Defend(enemyUnit.damage);
         Debug.Log(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
-        state = BattleState.ENEMYTURN;
+        turnState = TurnState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
+    */
 
     IEnumerator playerFlee() //player Flee functionality 
     {
@@ -82,7 +87,7 @@ public class battleState : MonoBehaviour
         if (random <= 10)
         {
             yield return new WaitForSeconds(1f);
-            state = BattleState.WAITING;
+            turnState = TurnState.WAITING;
             Debug.Log("Successfully Escaped");
             ScenesManager.instance.LoadLastScene();
         }
@@ -90,7 +95,7 @@ public class battleState : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             Debug.Log("Failed to Escape");
-            state = BattleState.ENEMYTURN;
+            turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
     }
@@ -99,22 +104,23 @@ public class battleState : MonoBehaviour
     {
         //Text variable goes here
         yield return new WaitForSeconds(2f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage); 
-        playerUI.setHP(playerUnit.currentHP);
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+      
         Debug.Log(playerUnit.currentHP);
         yield return new WaitForSeconds(2f);
         if (isDead)
         {
             yield return new WaitForSeconds(1f);
             Destroy(enemySprite);
-            state = BattleState.DEFEAT;
+            turnState = TurnState.DEFEAT;
             StartCoroutine(EndBattle());
         }
         else
         {
-            state = BattleState.PLAYERTURN;
+            turnState = TurnState.PLAYERTURN;
             PlayerAttack();
         }
+        
     }
 
 
@@ -132,7 +138,7 @@ public class battleState : MonoBehaviour
 
     public void onAttackButton()
     {
-        if (state!= BattleState.PLAYERTURN)
+        if (turnState!= TurnState.PLAYERTURN)
         {
             return;
         }
@@ -141,7 +147,7 @@ public class battleState : MonoBehaviour
 
     public void onFleeButton()
     {
-      if (state!= BattleState.PLAYERTURN)
+      if (turnState!= TurnState.PLAYERTURN)
         {
             return;
         }
@@ -150,11 +156,11 @@ public class battleState : MonoBehaviour
 
     public void onDefendButton()
     {
-        if (state != BattleState.PLAYERTURN)
+        if (turnState != TurnState.PLAYERTURN)
         {
             return;
         }
-        StartCoroutine(playerDefend());
+        //StartCoroutine(playerDefend());
     }
 
 
