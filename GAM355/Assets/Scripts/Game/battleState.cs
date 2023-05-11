@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
-public enum TurnState { START, PLAYERTURN, WAITING, ENEMYTURN, WIN, DEFEAT} //game turnStates
+public enum TurnState { START, PLAYERTURN, WAITING, ENEMYTURN, WIN, DEFEAT, FLEEING, FLED} //game turnStates
 public class battleState : MonoBehaviour
 {
     public GameObject playerPrefab;
@@ -15,8 +16,8 @@ public class battleState : MonoBehaviour
     public Transform enemyStation1;
     public Transform enemyStation2;
     public Transform enemyStation3;
-    public battleUI ui;
-    
+    public TextMeshProUGUI stateText;
+
 
     Unit playerUnit;
     Unit enemyUnit;
@@ -30,7 +31,7 @@ public class battleState : MonoBehaviour
     {
         turnState = TurnState.START;
         StartCoroutine(SetupBattle());
-        ui.setState();
+        setState();
     }
 
     IEnumerator SetupBattle()
@@ -46,17 +47,20 @@ public class battleState : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         turnState = TurnState.PLAYERTURN;
+        setState();
         playerAction();
     }
 
     IEnumerator PlayerAttack() //Damage enemy 
     {
         turnState = TurnState.WAITING;
+        setState();
         bool IsDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         if (IsDead)
         {
             turnState = TurnState.WIN;
+            setState();
             StartCoroutine(EndBattle());
         }
         else
@@ -87,16 +91,19 @@ public class battleState : MonoBehaviour
         if (random <= 10)
         {
             yield return new WaitForSeconds(1f);
-            turnState = TurnState.WAITING;
+            turnState = TurnState.FLED;
+            setState();
             Debug.Log("Successfully Escaped");
             ScenesManager.instance.LoadLastScene();
         }
         else
         {
             yield return new WaitForSeconds(1f);
+            turnState = TurnState.FLEEING;
             Debug.Log("Failed to Escape");
             turnState = TurnState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
+            setState();
         }
     }
 
@@ -105,6 +112,7 @@ public class battleState : MonoBehaviour
         //Text variable goes here
         yield return new WaitForSeconds(2f);
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        setState();
       
         Debug.Log(playerUnit.currentHP);
         yield return new WaitForSeconds(2f);
@@ -113,16 +121,25 @@ public class battleState : MonoBehaviour
             yield return new WaitForSeconds(1f);
             Destroy(enemySprite);
             turnState = TurnState.DEFEAT;
-            StartCoroutine(EndBattle());
+            setState();
+            StartCoroutine(Defeat());
         }
         else
         {
             turnState = TurnState.PLAYERTURN;
+            setState();
             PlayerAttack();
         }
         
     }
-
+    IEnumerator Defeat() //End battle method
+    {
+        yield return new WaitForSeconds(2f);
+        setState();
+        //loads last scene 
+        ScenesManager.instance.LoadMainMenu();
+        Debug.Log("Lost");
+    }
 
     IEnumerator EndBattle() //End battle method
     {
@@ -161,6 +178,10 @@ public class battleState : MonoBehaviour
             return;
         }
         //StartCoroutine(playerDefend());
+    }
+     public void setState() //displays state on Player UI
+    {
+        stateText.text = turnState.ToString();
     }
 
 
