@@ -47,29 +47,16 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         Debug.Log("Ending Conversation");
         dialogueText.text = sentence;
-        if (SceneManager.GetActiveScene().name == "Dialouge_1")
-        {
-            if (sentences.Count == 2) //Once there are 2 sentences left in the queue, the icon will appear within Dialogue scene 1
-            {
-                //IconSelection.SetActive(true);
-               
-            }
-
-        }
+       
 
     void EndDialogue() //Signifies the end of the Dialogue 
     {
         Debug.Log("End of Conversation");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
        
     }
  
-    //public void IconPictureReveal()
-    {
-        
-
-        }
-    }
+ 
 
   
 }

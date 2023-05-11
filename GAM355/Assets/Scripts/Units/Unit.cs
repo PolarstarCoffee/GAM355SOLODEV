@@ -5,7 +5,6 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public string unitName; //name for Unit
-    public string unitCurrentHP;
     public int unitLevel; //Unit Level (might be arbitrary) 
     public int damage;
     public int maxHP;
@@ -25,8 +24,17 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void Defend (int dmg) //allows Unit to defend themselves
+    public bool Defend (int dmg) //allows Unit to defend themselves
     {
-        
+        currentHP -= dmg / 2;
+        if (currentHP <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        } 
+            
     }
 }
