@@ -27,6 +27,7 @@ public class playerMovement : MonoBehaviour
    
     private void Start()
     {
+        DontDestroyOnLoad(transform.gameObject);
         firstPos = transform.position;
         if (transform.position != firstPos)
         {
@@ -38,7 +39,10 @@ public class playerMovement : MonoBehaviour
     {
         movePlayer();
     }
-    
+    public void playerlastTransform ()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
 
     public void movePlayer() //Player movement controller
     {
@@ -111,10 +115,10 @@ public class playerMovement : MonoBehaviour
         int random = Random.Range(1, 101);
         if (random <= 10)
         {
-            
-            LastPosition();
             Debug.Log("Entity Encountered");
-            ScenesManager.instance.LoadNextScene();   
+            
+            ScenesManager.instance.LoadNextScene();
+           
         }
     }
 
@@ -125,7 +129,7 @@ public class playerMovement : MonoBehaviour
         PlayerPrefs.SetFloat("Z", lastPos.z);//stores z pos
         PlayerPrefs.Save();
     }
-    void loadLastPos() //loads last player Position
+    void loadLastPos() //loads last player Positionss
     {
         float xpos = PlayerPrefs.GetFloat("X");
         float ypos = PlayerPrefs.GetFloat("Y");

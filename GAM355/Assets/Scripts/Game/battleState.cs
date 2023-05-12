@@ -33,6 +33,7 @@ public class battleState : MonoBehaviour
         turnState = TurnState.START;
         StartCoroutine(SetupBattle());
         setState();
+        Debug.Log(playerUnit.currentHP);
     }
 
     IEnumerator SetupBattle()

@@ -15,7 +15,7 @@ public class playerLocation : MonoBehaviour
     public void getPlayerPos() //grabs players location
     {
       playerPos= transform.position;
-      DontDestroyOnLoad(this.gameObject);
+      DontDestroyOnLoad(transform.gameObject);
     }
 
     public void setPlayerPos()
