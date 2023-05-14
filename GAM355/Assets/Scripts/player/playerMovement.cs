@@ -22,14 +22,20 @@ public class playerMovement : MonoBehaviour
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if player is in motion
-    public static Vector3 lastPos;
-    public static Vector3 firstPos;
+    public Transform playerPos;
 
     private void Awake()
     {
         
     }
-   
+    private void Start()
+    {
+        if (gameDataManager.instance != null)
+        {
+            
+        }
+    }
+
     void Update()
     {
         movePlayer();
@@ -112,20 +118,4 @@ public class playerMovement : MonoBehaviour
             
         }
     }
-
-    void LastPosition() //method to store player's last location before switching scenes using PlayerPrefs
-    {
-        PlayerPrefs.SetFloat("X", lastPos.x);//stores x pos
-        PlayerPrefs.SetFloat("Y", lastPos.y);//stores y pos
-        PlayerPrefs.SetFloat("Z", lastPos.z);//stores z pos
-        PlayerPrefs.Save();
-    }
-    void loadLastPos() //loads last player Positionss
-    {
-        float xpos = PlayerPrefs.GetFloat("X");
-        float ypos = PlayerPrefs.GetFloat("Y");
-        float zpos = PlayerPrefs.GetFloat("Z");
-        transform.position = new Vector3(xpos, ypos, zpos);
-    }
-
 }

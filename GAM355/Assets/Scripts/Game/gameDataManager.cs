@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class characterManager : MonoBehaviour
+public class gameDataManager : MonoBehaviour
 {
     // Start is called before the first frame update
-  public static characterManager instance;
-   public Vector3 playerPos;
+    public static gameDataManager instance;
+    public Transform playerPos;
+    public string unitName; //name for Unit
+    public int unitLevel; //Unit Level (might be arbitrary) 
+    public int damage;
+    public int maxHP;
+    public int playerCurrentHP;
+    public int currentHP;
 
     private void Awake()
     {
@@ -17,5 +23,8 @@ public class characterManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
+    } //ensures object is not destroyed as scenes change
+
+
+ 
 }

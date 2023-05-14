@@ -30,10 +30,11 @@ public class battleState : MonoBehaviour
   
     void Start()
     {
+        
         turnState = TurnState.START;
         StartCoroutine(SetupBattle());
         setState();
-        Debug.Log(playerUnit.currentHP);
+        Debug.Log(gameDataManager.instance.playerCurrentHP);
     }
 
     IEnumerator SetupBattle()
@@ -46,7 +47,7 @@ public class battleState : MonoBehaviour
 
         playerUI.setHUD(playerUnit); //sets UI to our player
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         turnState = TurnState.PLAYERTURN;
         setState();
@@ -58,6 +59,7 @@ public class battleState : MonoBehaviour
         turnState = TurnState.WAITING;
         setState();
         bool IsDead = enemyUnit.TakeDamage(playerUnit.damage);
+        Debug.Log(enemyUnit.currentHP);
 
         if (IsDead)
         {
@@ -111,10 +113,9 @@ public class battleState : MonoBehaviour
         
         setState();
         yield return new WaitForSeconds(2f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-        
-      
-        Debug.Log(playerUnit.currentHP);
+        bool isDead = playerUnit.PlayerTakeDamage(enemyUnit.damage);
+        Debug.Log(playerUnit.playerCurrentHP);
+        gameDataManager.instance.playerCurrentHP = playerUnit.playerCurrentHP; //MAKE SURE TO UPDATE GAME DATA ONCE ATTACK IS DONE
         yield return new WaitForSeconds(2f);
         if (isDead)
         {

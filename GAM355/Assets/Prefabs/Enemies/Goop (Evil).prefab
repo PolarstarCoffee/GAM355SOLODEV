@@ -101,4 +101,5 @@ MonoBehaviour:
   unitLevel: 1
   damage: 5
   maxHP: 30
+  playerCurrentHP: 30
   currentHP: 10
