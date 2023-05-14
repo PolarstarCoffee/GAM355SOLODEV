@@ -22,23 +22,40 @@ public class playerMovement : MonoBehaviour
     Vector3 startPosition; //Start position
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if player is in motion
-    public Transform playerPos;
-
+  
+    public static playerMovement instance;
     private void Awake()
     {
-        
+      if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+      else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+     
+
     }
     private void Start()
     {
-        if (gameDataManager.instance != null)
-        {
-            
-        }
+      
+
+        
+        //DontDestroyOnLoad(playerPos);
     }
 
     void Update()
     {
-        movePlayer();
+        if (SceneManager.GetActiveScene().name == "dungeon1")
+        {
+            movePlayer();
+        }
+        
+            //IF THE SCENE IS CURRENTLY THE FIRST DUNGEON, THE PLAYER CAN MOVE MIGHT NEED TO MAKE THIS OBJECT PERSIST BETWEEN SCENES TOO. SINCE TRANSFORMS TECHNICALLY CANT BE SAVED
+        
+        
     }
  
 
@@ -114,8 +131,11 @@ public class playerMovement : MonoBehaviour
         if (random <= 10)
         {
             Debug.Log("Entity Encountered");
+            
             ScenesManager.instance.LoadNextScene();
             
         }
     }
+
+  
 }

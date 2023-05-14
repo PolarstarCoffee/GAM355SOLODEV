@@ -331,7 +331,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &599384798 stripped
 Transform:
@@ -370,7 +370,7 @@ Transform:
   - {fileID: 1935442069}
   - {fileID: 1415077781}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968852650
 GameObject:
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a097ca580afc3648a15c53bed062b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 599384798}
   unitName: 
   unitLevel: 1
   damage: 5
@@ -696,7 +696,7 @@ PrefabInstance:
       objectReference: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3602501907672221202, guid: 0bdee2b921e77214f95b0979d1fbae13, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3602501907672221202, guid: 0bdee2b921e77214f95b0979d1fbae13, type: 3}
       propertyPath: m_LocalScale.x
@@ -750,6 +750,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3602501907672221205, guid: 0bdee2b921e77214f95b0979d1fbae13, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 599384798}
     - target: {fileID: 3602501907672221214, guid: 0bdee2b921e77214f95b0979d1fbae13, type: 3}
       propertyPath: m_Name
       value: playerBase

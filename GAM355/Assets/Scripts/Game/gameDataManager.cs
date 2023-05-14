@@ -6,7 +6,7 @@ public class gameDataManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static gameDataManager instance;
-    public Transform playerPos;
+    
     public string unitName; //name for Unit
     public int unitLevel; //Unit Level (might be arbitrary) 
     public int damage;
