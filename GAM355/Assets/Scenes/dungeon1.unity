@@ -652,7 +652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a097ca580afc3648a15c53bed062b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 599384798}
   unitName: 
   unitLevel: 1
   damage: 5
@@ -666,6 +665,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3602501907531051697, guid: 0bdee2b921e77214f95b0979d1fbae13, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3602501907531051699, guid: 0bdee2b921e77214f95b0979d1fbae13, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1

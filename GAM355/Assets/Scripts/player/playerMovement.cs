@@ -50,6 +50,7 @@ public class playerMovement : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "dungeon1")
         {
+            
             movePlayer();
         }
         
