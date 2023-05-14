@@ -10,6 +10,12 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
 
+
+
+    private void Start()
+    {
+     DontDestroyOnLoad(this.gameObject);   
+    }
     public bool TakeDamage (int dmg) //allows enemy to take damage
     {
         currentHP -= dmg;

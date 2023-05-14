@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,25 +25,16 @@ public class playerMovement : MonoBehaviour
     public static Vector3 lastPos;
     public static Vector3 firstPos;
 
-   
-    private void Start()
+    private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
-        firstPos = transform.position;
-        if (transform.position != firstPos)
-        {
-            loadLastPos();
-        }
         
     }
+   
     void Update()
     {
         movePlayer();
     }
-    public void playerlastTransform ()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+ 
 
     public void movePlayer() //Player movement controller
     {
@@ -116,9 +108,8 @@ public class playerMovement : MonoBehaviour
         if (random <= 10)
         {
             Debug.Log("Entity Encountered");
-            
             ScenesManager.instance.LoadNextScene();
-           
+            
         }
     }
 

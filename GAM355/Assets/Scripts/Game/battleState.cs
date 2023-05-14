@@ -181,7 +181,7 @@ public class battleState : MonoBehaviour
             return;
         }
         StartCoroutine(PlayerAttack());
-    }
+    } //attack button functionality
 
     public void onFleeButton()
     {
@@ -190,7 +190,7 @@ public class battleState : MonoBehaviour
             return;
         }
         StartCoroutine(playerFlee());
-    }
+    } //Flee button functionality 
 
     public void onDefendButton()
     {
@@ -199,7 +199,7 @@ public class battleState : MonoBehaviour
             return;
         }
         StartCoroutine(EnemyDefendAttack());
-    }
+    } //Defend Button functionality 
      public void setState() //displays state on Player UI
     {
         stateText.text = turnState.ToString();

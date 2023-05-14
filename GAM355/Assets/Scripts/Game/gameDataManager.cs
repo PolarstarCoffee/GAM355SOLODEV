@@ -6,6 +6,7 @@ public class characterManager : MonoBehaviour
 {
     // Start is called before the first frame update
   public static characterManager instance;
+   public Vector3 playerPos;
 
     private void Awake()
     {
