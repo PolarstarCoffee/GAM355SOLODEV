@@ -16,8 +16,10 @@ public class ScenesManager : MonoBehaviour
     public enum Scene //Levels are by index (mainMenu = 0, Level01 = 1, etc.. NOTE: MAKE SURE ENUM ENTRIES MATCH ORDER WITHIN UNITY'S BUILD SETTINGS, OR GAME WILL BLOW UP 
     {
         mainMenu,
+        introDialogue,
         dungeon1,
-        BattleScene
+        BattleScene,
+        loseScreen
     }
 
     // Load Scene method

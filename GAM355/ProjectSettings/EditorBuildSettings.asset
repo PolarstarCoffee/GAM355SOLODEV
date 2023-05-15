@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/mainMenu.unity
     guid: 81fb2ce4ed80dd4488ccf11699d77d58
   - enabled: 1
+    path: Assets/Scenes/introDialogue.unity
+    guid: ac08f3bf18652944a8a55a014191e4fe
+  - enabled: 1
     path: Assets/Scenes/dungeon1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 0f44d89ff5d874d4a9beb91b82076bd9
+  - enabled: 1
+    path: Assets/Scenes/loseScreen.unity
+    guid: e795bdc05a981854ea06bbb00a33e87b
   m_configObjects: {}
