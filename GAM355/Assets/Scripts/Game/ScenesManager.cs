@@ -19,7 +19,8 @@ public class ScenesManager : MonoBehaviour
         introDialogue,
         dungeon1,
         BattleScene,
-        loseScreen
+        loseScreen,
+        AlphaEnd
     }
 
     // Load Scene method
@@ -52,5 +53,18 @@ public class ScenesManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(Scene.mainMenu.ToString());
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void backtoGame()
+    {
+        SceneManager.LoadScene(Scene.dungeon1.ToString());
+    }
+
+    public void endofAlpha()
+    {
+        SceneManager.LoadScene(Scene.AlphaEnd.ToString());
     }
 }

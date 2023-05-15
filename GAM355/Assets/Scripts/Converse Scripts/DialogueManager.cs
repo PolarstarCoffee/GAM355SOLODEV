@@ -52,9 +52,11 @@ public class DialogueManager : MonoBehaviour
         void EndDialogue() //Signifies the end of the Dialogue 
         {
             Debug.Log("End of Conversation");
+            ScenesManager.instance.LoadNextScene();
 
 
         }
+
 
 
 
