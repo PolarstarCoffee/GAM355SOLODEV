@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-public enum TurnState { START, PLAYERTURN, WAITING, ENEMYTURN, WIN, DEFEAT, DEFENDING, FLEEING, NOESCAPE, FLED} //game turnStates
+public enum TurnState { START, PLAYERTURN, WAITING, ENEMYTURN, VICTORY, DEFEAT, DEFENDING, FLEEING, NOESCAPE, FLED} //game turnStates
 public class battleState : MonoBehaviour
 {
     //References
@@ -18,6 +18,7 @@ public class battleState : MonoBehaviour
     public Transform enemyStation2;
     public Transform enemyStation3;
     public TextMeshProUGUI stateText; //UI Reference
+   
 
 
     Unit playerUnit; 
@@ -46,6 +47,7 @@ public class battleState : MonoBehaviour
         enemyUnit = enemy.GetComponent<Unit>(); //grabs ref to enemy unit
 
         playerUI.setHUD(playerUnit); //sets UI to our player
+        playerUI.setHP(playerUnit);
 
         yield return new WaitForSeconds(1f);
 
@@ -63,7 +65,7 @@ public class battleState : MonoBehaviour
 
         if (IsDead)
         {
-            turnState = TurnState.WIN;
+            turnState = TurnState.VICTORY;
             setState();
             StartCoroutine(EndBattle());
         }
@@ -116,6 +118,7 @@ public class battleState : MonoBehaviour
         bool isDead = playerUnit.PlayerTakeDamage(enemyUnit.damage);
         Debug.Log(playerUnit.playerCurrentHP);
         gameDataManager.instance.playerCurrentHP = playerUnit.playerCurrentHP; //MAKE SURE TO UPDATE GAME DATA ONCE ATTACK IS DONE
+        playerUI.setHP(playerUnit);
         yield return new WaitForSeconds(2f);
         if (isDead)
         {
@@ -139,6 +142,8 @@ public class battleState : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Debug.Log(playerUnit.currentHP);
         bool isDead = playerUnit.Defend(enemyUnit.damage);
+        gameDataManager.instance.playerCurrentHP = playerUnit.playerCurrentHP; //MAKE SURE TO UPDATE GAME DATA ONCE ATTACK IS DONE
+        playerUI.setHP(playerUnit);
         if (isDead)
         {
             yield return new WaitForSeconds(1f);
@@ -159,7 +164,7 @@ public class battleState : MonoBehaviour
         yield return new WaitForSeconds(2f);
         setState();
         //loads last scene 
-        ScenesManager.instance.LoadMainMenu();
+        ScenesManager.instance.LoadloseScreen();
         Debug.Log("Lost");
     }
 
@@ -205,6 +210,7 @@ public class battleState : MonoBehaviour
     {
         stateText.text = turnState.ToString();
     }
+    
 
 
 }

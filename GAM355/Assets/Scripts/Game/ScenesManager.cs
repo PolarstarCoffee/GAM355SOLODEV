@@ -67,4 +67,8 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(Scene.AlphaEnd.ToString());
     }
+    public void LoadloseScreen()
+    {
+        SceneManager.LoadScene(Scene.loseScreen.ToString());    
+    }
 }

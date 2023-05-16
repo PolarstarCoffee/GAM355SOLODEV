@@ -37,8 +37,8 @@ public class Unit : MonoBehaviour
 
     public bool Defend (int dmg) //allows Unit to defend themselves
     {
-        currentHP -= dmg / 2;
-        if (currentHP <= 0)
+        playerCurrentHP -= dmg / 2;
+        if (playerCurrentHP <= 0)
         {
             return true;
         }
