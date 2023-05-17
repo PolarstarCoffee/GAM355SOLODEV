@@ -54,7 +54,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {//IF THE SCENE IS CURRENTLY THE FIRST DUNGEON, THE PLAYER CAN MOVE MIGHT NEED TO MAKE THIS OBJECT PERSIST BETWEEN SCENES TOO. SINCE TRANSFORMS TECHNICALLY CANT BE SAVED
 
-        if (SceneManager.GetActiveScene().name == "dungeon1")
+        if (SceneManager.GetActiveScene().name == "dungeon1" )
         {
           movePlayer();
         }
@@ -138,9 +138,7 @@ public class playerMovement : MonoBehaviour
         if (random <= 10)
         {
             Debug.Log("Entity Encountered");
-
             ScenesManager.instance.crossFade();
-            moving= false;
             return true;
         }
         else
