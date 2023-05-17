@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static System.TimeZoneInfo;
 
 public class playerMovement : MonoBehaviour
 {
@@ -131,17 +132,23 @@ public class playerMovement : MonoBehaviour
         }
     } 
 
-    public void CheckforEncounters() //Random encounter method
+    public bool CheckforEncounters() //Random encounter method
     {
         int random = Random.Range(1, 101);
         if (random <= 10)
         {
             Debug.Log("Entity Encountered");
-            
-            ScenesManager.instance.LoadNextScene();
-            
+
+            ScenesManager.instance.crossFade();
+            moving= false;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
+ 
 
-  
+
 }

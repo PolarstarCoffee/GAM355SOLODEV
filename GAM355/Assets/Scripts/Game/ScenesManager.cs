@@ -7,7 +7,8 @@ public class ScenesManager : MonoBehaviour
 {
     //static class makes it so this method is accessible in any way within any function. 
    public static ScenesManager instance;
-
+    public Animator transition; //animator ref
+    public float transitionTime = 1f;
     private void Awake()
     {
         instance = this;
@@ -70,5 +71,15 @@ public class ScenesManager : MonoBehaviour
     public void LoadloseScreen()
     {
         SceneManager.LoadScene(Scene.loseScreen.ToString());    
+    }
+    IEnumerator crossFadeTransition() //script to initiate scene transition
+    {
+        transition.SetTrigger("start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(Scene.BattleScene.ToString());
+    }
+    public void crossFade()
+    {
+        StartCoroutine(crossFadeTransition());
     }
 }
