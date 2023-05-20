@@ -48,7 +48,8 @@ public class battleState : MonoBehaviour
 
         playerUI.setHUD(playerUnit); //sets UI to our player
         playerUI.setHP(playerUnit);
-        playerUI.enemySetHP(enemyUnit);
+        enemyUI.enemySetHP(enemyUnit); //Sets enemy UI
+        enemyUI.enemySetName(enemyUnit);
 
         yield return new WaitForSeconds(1f);
 
