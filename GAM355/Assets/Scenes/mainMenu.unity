@@ -289,9 +289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'On the Way
-
-'
+  m_text: Ibun
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
   m_sharedMaterial: {fileID: 6484719484895592792, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
@@ -412,6 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9321c2740d4e64c4fb1233a43f983230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &728672432
 GameObject:
   m_ObjectHideFlags: 0
