@@ -150,7 +150,7 @@ RectTransform:
   m_GameObject: {fileID: 186510037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.640625, y: 2.3181484, z: 1}
+  m_LocalScale: {x: 4.640625, y: 3.2743847, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 523033513}
@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -192}
+  m_AnchoredPosition: {x: 4, y: -239}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186510039
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: After a tough day of classes in the concrete jungle...
+  m_text: With University being rougher than usual, you hurry to the train home...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
   m_sharedMaterial: {fileID: 6484719484895592792, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292691039
-  m_fontColor: {r: 0.37182796, g: 0.26610893, b: 0.8679245, a: 1}
+    rgba: 4285902902
+  m_fontColor: {r: 0.21115166, g: 0.6886792, b: 0.4601614, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -798,8 +798,8 @@ MonoBehaviour:
   dialogue:
     name: Intro
     sentences:
-    - You walk into the train station, missing the ride home!
-    - Great..."Not much else to do but wait until the next one" you think to yourself
+    - As you walk into the station, you hear the train depart! Shit!
+    - Great..."Not much else to do but wait until the next one" you think to yourself...
 --- !u!114 &823273252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,6 +1353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9321c2740d4e64c4fb1233a43f983230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transition: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &1664335664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1440,7 @@ GameObject:
   - component: {fileID: 1914551031}
   - component: {fileID: 1914551030}
   m_Layer: 5
-  m_Name: ALPHATEXT
+  m_Name: versionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1484,7 +1486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ALPHA
+  m_text: BUILD 1.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
   m_sharedMaterial: {fileID: 6484719484895592792, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}

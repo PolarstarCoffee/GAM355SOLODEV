@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/introDialogue.unity
     guid: ac08f3bf18652944a8a55a014191e4fe
   - enabled: 1
+    path: Assets/Scenes/introDialogue2.unity
+    guid: f79009fe84eb80449b15a83e85fada25
+  - enabled: 1
     path: Assets/Scenes/dungeon1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
