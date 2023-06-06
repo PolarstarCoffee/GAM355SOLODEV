@@ -21,7 +21,7 @@ public class ScenesManager : MonoBehaviour
         dungeon1,
         BattleScene,
         loseScreen,
-        AlphaEnd
+        controls
     }
 
     // Load Scene method
@@ -64,13 +64,14 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(Scene.dungeon1.ToString());
     }
 
-    public void endofAlpha()
-    {
-        SceneManager.LoadScene(Scene.AlphaEnd.ToString());
-    }
+
     public void LoadloseScreen()
     {
         SceneManager.LoadScene(Scene.loseScreen.ToString());    
+    }
+    public void loadControls()
+    {
+        SceneManager.LoadScene(Scene.controls.ToString());
     }
     IEnumerator crossFadeTransition() //script to initiate scene transition
     {

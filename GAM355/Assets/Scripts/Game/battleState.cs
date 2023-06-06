@@ -12,6 +12,7 @@ public class battleState : MonoBehaviour
     //References
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameObject[] enemies;
     public Sprite enemySprite;
 
     public Transform enemyStation1;
@@ -49,7 +50,6 @@ public class battleState : MonoBehaviour
         playerUI.setHUD(playerUnit); //sets UI to our player
         playerUI.setHP(playerUnit);
         enemyUI.enemySetHP(enemyUnit); //Sets enemy UI
-        enemyUI.enemySetName(enemyUnit);
 
         yield return new WaitForSeconds(1f);
 
@@ -64,6 +64,8 @@ public class battleState : MonoBehaviour
         setState();
         bool IsDead = enemyUnit.TakeDamage(playerUnit.damage);
         Debug.Log(enemyUnit.currentHP);
+        gameDataManager.instance.currentHP = enemyUnit.currentHP;
+        enemyUI.enemySetHP(enemyUnit);
 
         if (IsDead)
         {
