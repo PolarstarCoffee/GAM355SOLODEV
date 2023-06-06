@@ -18,6 +18,8 @@ public class ScenesManager : MonoBehaviour
     {
         mainMenu,
         introDialogue,
+        introDialogue2,
+        introDialogue3,
         dungeon1,
         BattleScene,
         loseScreen,

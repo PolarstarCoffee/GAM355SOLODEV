@@ -181,8 +181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As you meander around the station, you notice an odd quietness... even
-    walking back outside, you find no one...
+  m_text: Turning a corner, you can't quite comprehend what you're looking at, but
+    you hear a voice in the back of your mind...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
   m_sharedMaterial: {fileID: 6484719484895592792, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
@@ -935,11 +935,24 @@ MonoBehaviour:
   dialogue:
     name: Intro
     sentences:
-    - You yourself can't quite remember if you've seen anyone on the walk here as
-      well...
-    - As thoughts turn into worries, then into concerns, you can hear your heartbeat
-      in your ears...
-    - Gripping your pocket knife, you continue onwards...
+    - Hello there, you seem to look a little lost... the last train departs at the
+      end of the station soon...Oh?
+    - Do you not know where you are? Why, you're in the UnderBelly. The transition
+      period between days, where intense feelings and desires manifest and contort
+      our forms for a short period. Yet, you still seem to be "human". Is something
+      troubling you young one?
+    - "If that's the case, before you depart home, perhaps it's in your best interest
+      to speak with some denizens of the station...perhaps their insight might make
+      you aware of...alternative methods of thought. Perchance, you'll unlock another
+      avenue to express yourself. \r\n"
+    - '...Just at the end of the next room leads to the last platform. Take care,
+      for those who slip between the cracks can become lost in their heads within
+      the UnderBelly...
+
+'
+    - '...And they do not come back.
+
+'
 --- !u!114 &823273252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1553,7 +1566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f1cbe8104106a6746885d2ae1e51443c, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2ba9d53c24c0da84d976d0e6806c77fc, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1595,7 +1608,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c9f2f97bc208d1b4ca2badb7ce9176df, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 27377838ba76ab140880f204c5745d44, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
