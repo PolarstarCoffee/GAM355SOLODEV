@@ -36,10 +36,7 @@ public class playerMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-      if (SceneManager.GetActiveScene().name == "AlphaEnd")
-        {
-            Destroy(gameObject);
-        }
+      
      
 
     }
@@ -58,12 +55,8 @@ public class playerMovement : MonoBehaviour
         {
           movePlayer();
         }
-        //If the scene equals the alpha end scene, delete the player object
-        if (SceneManager.GetActiveScene().name == "AlphaEnd")
-        {
-            Destroy(gameObject);
-        }
         
+       
     }
  
 
