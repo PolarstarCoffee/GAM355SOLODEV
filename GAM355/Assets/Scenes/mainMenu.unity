@@ -289,7 +289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ibun
+  m_text: Ibunn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
   m_sharedMaterial: {fileID: 6484719484895592792, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
