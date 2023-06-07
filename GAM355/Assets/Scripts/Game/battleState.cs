@@ -19,6 +19,8 @@ public class battleState : MonoBehaviour
     public Transform enemyStation2;
     public Transform enemyStation3;
     public TextMeshProUGUI stateText; //UI Reference
+    public AudioSource playerHit;
+    public AudioSource enemyHit;
    
 
 

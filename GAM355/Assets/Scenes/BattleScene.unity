@@ -2642,6 +2642,8 @@ MonoBehaviour:
   enemyStation2: {fileID: 1502620272}
   enemyStation3: {fileID: 95019992}
   stateText: {fileID: 1141820084}
+  playerHit: {fileID: 478688602385369450, guid: 812d028657b1eb548bb3a60032b2116f, type: 3}
+  enemyHit: {fileID: 0}
   playerUI: {fileID: 1226951821}
   enemyUI: {fileID: 813133892}
   turnState: 0
