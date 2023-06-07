@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Zombie
   unitLevel: 1
-  damage: 5
+  damage: 4
   maxHP: 30
   playerCurrentHP: 30
   currentHP: 12

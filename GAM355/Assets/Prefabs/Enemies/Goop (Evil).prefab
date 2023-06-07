@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Goop (Evil)
   unitLevel: 1
-  damage: 5
+  damage: 2
   maxHP: 30
   playerCurrentHP: 30
   currentHP: 10
