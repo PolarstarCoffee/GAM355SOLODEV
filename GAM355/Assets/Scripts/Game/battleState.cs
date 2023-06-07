@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
 
 
 public enum TurnState { START, PLAYERTURN, WAITING, ENEMYTURN, VICTORY, DEFEAT, DEFENDING, FLEEING, NOESCAPE, FLED} //game turnStates
@@ -70,7 +71,7 @@ public class battleState : MonoBehaviour
         Debug.Log(enemyUnit.currentHP);
         gameDataManager.instance.currentHP = enemyUnit.currentHP;
         enemyUI.enemySetHP(enemyUnit);
-
+       
         if (IsDead)
         {
             turnState = TurnState.VICTORY;
@@ -122,12 +123,13 @@ public class battleState : MonoBehaviour
     {
         
         setState();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         bool isDead = playerUnit.PlayerTakeDamage(enemyUnit.damage);
         Debug.Log(playerUnit.playerCurrentHP);
         gameDataManager.instance.playerCurrentHP = playerUnit.playerCurrentHP; //MAKE SURE TO UPDATE GAME DATA ONCE ATTACK IS DONE
         playerUI.setHP(playerUnit);
-        yield return new WaitForSeconds(2f);
+        enemyHit.Play();
+        yield return new WaitForSeconds(1f);
         if (isDead)
         {
             yield return new WaitForSeconds(1f);
@@ -195,6 +197,7 @@ public class battleState : MonoBehaviour
             return;
         }
         StartCoroutine(PlayerAttack());
+        
     } //attack button functionality
 
     public void onFleeButton()
