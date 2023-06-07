@@ -129,7 +129,7 @@ public class playerMovement : MonoBehaviour
     public bool CheckforEncounters() //Random encounter method
     {
         int random = Random.Range(1, 101);
-        if (random <= 10)
+        if (random <= 5)
         {
             Debug.Log("Entity Encountered");
             ScenesManager.instance.crossFade();

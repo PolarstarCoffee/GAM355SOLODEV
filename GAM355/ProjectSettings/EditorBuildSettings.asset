@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/wiseDialogue.unity
     guid: 470f40a0610754e41957ac59e5179cbf
   - enabled: 1
-    path: Assets/Scenes/barScene.unity
-    guid: c6b34657c20e76e469853794c24da06d
+    path: Assets/Scenes/endScene.unity
+    guid: 2f8916e2bdfc8834480545987656ae0e
+  - enabled: 0
+    path: Assets/Scenes/dungeon2.unity
+    guid: a997c710a4dbafa47b40f15e9468461f
   m_configObjects: {}

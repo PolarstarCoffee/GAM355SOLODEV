@@ -181,8 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Turning a corner, you can't quite comprehend what you're looking at, but
-    you hear a voice in the back of your mind...
+  m_text: As you get ever so close to your ride home, you hear a voice...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
   m_sharedMaterial: {fileID: 6484719484895592792, guid: aa31f097ae4a2fe45bc01c79f14ff91c, type: 2}
@@ -935,24 +934,21 @@ MonoBehaviour:
   dialogue:
     name: Intro
     sentences:
-    - Hello there, you seem to look a little lost... the last train departs at the
-      end of the station soon...Oh?
-    - Do you not know where you are? Why, you're in the UnderBelly. The transition
-      period between days, where intense feelings and desires manifest and contort
-      our forms for a short period. Yet, you still seem to be "human". Is something
-      troubling you young one?
-    - "If that's the case, before you depart home, perhaps it's in your best interest
-      to speak with some denizens of the station...perhaps their insight might make
-      you aware of...alternative methods of thought. Perchance, you'll unlock another
-      avenue to express yourself. \r\n"
-    - '...Just at the end of the next room leads to the last platform. Take care,
-      for those who slip between the cracks can become lost in their heads within
-      the UnderBelly...
-
-'
-    - '...And they do not come back.
-
-'
+    - Hello!  Sorry for the intrusion, alas I noticed you maintained your human form!
+      I find this quite peculiar...
+    - 'May I ask how you''ve come about keeping yourself together? '
+    - ...You explain that you have a train to make..Though also your emotions aren't
+      "strong enough" to take on a form...
+    - 'What? Who told you that? What NONSENSE! '
+    - The forms we take shape within the UnderBelly change according to said cognitive
+      condition! You remain human, for you believe deep down you are human! Not a
+      beast, nor an otherwordly being.
+    - 'Isn''t it fascinating? How this space is able to accurately materialize cognitive
+      idealations to our own limited reality? '
+    - How does one materialze the abstract? I suppose where experience and knowledge
+      don't work, absuridty might...
+    - 'Ah! Do excuse my monolouging, I wish you a safe departure! Do visit again
+      so we can discuss more!  '
 --- !u!114 &823273252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,7 +1516,7 @@ GameObject:
   - component: {fileID: 1664335667}
   - component: {fileID: 1664335666}
   m_Layer: 5
-  m_Name: city1
+  m_Name: Entity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1566,7 +1562,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2ba9d53c24c0da84d976d0e6806c77fc, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0253d945814feba45ab274a1c13a59d4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
