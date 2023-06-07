@@ -32,11 +32,12 @@ public class battleState : MonoBehaviour
   
     void Start()
     {
-        
+       
         turnState = TurnState.START;
         StartCoroutine(SetupBattle());
         setState();
         Debug.Log(gameDataManager.instance.playerCurrentHP);
+        gameDataManager.instance.currentHP = enemyUnit.currentHP;
     }
 
     IEnumerator SetupBattle()
@@ -44,12 +45,13 @@ public class battleState : MonoBehaviour
         GameObject player = Instantiate(playerPrefab); //spawn player unit
         playerUnit = player.GetComponent<Unit>(); //grabs reference to player's Unit 
 
-        GameObject enemy = Instantiate(enemyPrefab, enemyStation1); //spawn enemy unit at their station
+        GameObject enemy = Instantiate(enemies[UnityEngine.Random.Range(0, enemies.Length)], enemyStation1); //spawn enemy unit at their station
         enemyUnit = enemy.GetComponent<Unit>(); //grabs ref to enemy unit
 
         playerUI.setHUD(playerUnit); //sets UI to our player
         playerUI.setHP(playerUnit);
         enemyUI.enemySetHP(enemyUnit); //Sets enemy UI
+        
 
         yield return new WaitForSeconds(1f);
 
