@@ -23,7 +23,11 @@ public class ScenesManager : MonoBehaviour
         dungeon1,
         BattleScene,
         loseScreen,
-        controls
+        controls,
+        credits,
+        angryDialogue,
+        wiseDialogue,
+        barScene
     }
 
     // Load Scene method
@@ -57,16 +61,18 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(Scene.mainMenu.ToString());
     }
+    //exits application (Only works on build)
     public void Quit()
     {
         Application.Quit();
     }
+    //Duplicate scrip for dungeon load
     public void backtoGame()
     {
         SceneManager.LoadScene(Scene.dungeon1.ToString());
     }
 
-
+    //loads lose screen
     public void LoadloseScreen()
     {
         SceneManager.LoadScene(Scene.loseScreen.ToString());    
@@ -74,6 +80,25 @@ public class ScenesManager : MonoBehaviour
     public void loadControls()
     {
         SceneManager.LoadScene(Scene.controls.ToString());
+    }
+    //loads credits scene 
+    public void loadCredits()
+    {
+        SceneManager.LoadScene(Scene.credits.ToString());
+    }
+    //loads dungeon
+    public void loadDungeon()
+    {
+        SceneManager.LoadScene(Scene.dungeon1.ToString());
+    }
+    //Loads bar scene
+    public void loadBar()
+    {
+        SceneManager.LoadScene(Scene.barScene.ToString());  
+    }
+    public void loadAngryNPC()
+    {
+        SceneManager.LoadScene(Scene.angryDialogue.ToString());
     }
     IEnumerator crossFadeTransition() //script to initiate scene transition
     {

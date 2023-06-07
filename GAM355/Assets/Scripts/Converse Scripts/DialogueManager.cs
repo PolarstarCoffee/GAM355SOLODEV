@@ -62,4 +62,26 @@ public class DialogueManager : MonoBehaviour
 
 
     }
+
+    public void displayNPCSentence()
+    {
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
+        string sentence = sentences.Dequeue();
+        Debug.Log("Ending Conversation");
+        dialogueText.text = sentence;
+
+
+        void EndDialogue() //Signifies the end of the Dialogue 
+        {
+            Debug.Log("End of Conversation");
+            ScenesManager.instance.loadDungeon();
+
+
+        }
+    }
 }
