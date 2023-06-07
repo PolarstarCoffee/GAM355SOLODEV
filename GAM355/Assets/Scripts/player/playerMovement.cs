@@ -27,13 +27,20 @@ public class playerMovement : MonoBehaviour
     public static playerMovement instance;
     private void Awake()
     {
-      if (instance == null)
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
             instance = this;
         }
       else if (instance != this)
         {
+            
+            Destroy(gameObject);
+        }
+      else if (SceneManager.GetActiveScene().name == "mainMenu")
+        {
+            
             Destroy(gameObject);
         }
       
@@ -55,11 +62,11 @@ public class playerMovement : MonoBehaviour
         {
           movePlayer();
         }
-        
        
-    }
- 
 
+    }
+
+    
     public void movePlayer() //Player movement controller
     {
         if (moving)
@@ -140,7 +147,16 @@ public class playerMovement : MonoBehaviour
             return false;
         }
     }
- 
+
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        if (scene.name == "mainMenu")
+        {
+            Destroy(gameObject);
+            Debug.Log("I am inside the if statement");
+        }
+    }
 
 
-}
+
+    }

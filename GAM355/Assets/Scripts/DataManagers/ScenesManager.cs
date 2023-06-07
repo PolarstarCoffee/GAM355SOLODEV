@@ -30,7 +30,7 @@ public class ScenesManager : MonoBehaviour
         barScene,
         
     }
-
+    
     // Load Scene method
     public void LoadScene(Scene scene)
     {
@@ -107,6 +107,8 @@ public class ScenesManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(Scene.BattleScene.ToString());
     }
+   
+
     public void crossFade()
     {
         StartCoroutine(crossFadeTransition());

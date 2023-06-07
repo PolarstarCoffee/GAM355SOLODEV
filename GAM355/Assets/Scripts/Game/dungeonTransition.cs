@@ -10,7 +10,7 @@ public class dungeonTransition : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Entered");
-            ScenesManager.instance.loadBar();
+            ScenesManager.instance.loadAngryNPC();
             Destroy(gameObject);
         }
     }
