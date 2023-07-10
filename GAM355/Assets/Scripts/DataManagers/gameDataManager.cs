@@ -13,6 +13,8 @@ public class gameDataManager : MonoBehaviour
     public int maxHP;
     public int playerCurrentHP;
     public int currentHP;
+    private Vector3 lastPlayerPos = new Vector3 ();
+    public static Vector3 Pos { get; set; }
 
     private void Awake()
     {
@@ -26,5 +28,13 @@ public class gameDataManager : MonoBehaviour
     } //ensures object is not destroyed as scenes change
 
 
+    public void setPlayerPos()
+    {
+         
+        gameDataManager.Pos = new Vector3 ();
+    }
+   
+
+    
  
 }

@@ -56,8 +56,7 @@ public class playerMovement : MonoBehaviour
           movePlayer();
         }
        
-
-    }
+   }
 
     
     public void movePlayer() //Player movement controller
@@ -133,6 +132,7 @@ public class playerMovement : MonoBehaviour
         {
             Debug.Log("Entity Encountered");
             ScenesManager.instance.crossFade();
+            
             return true;
         }
         else
