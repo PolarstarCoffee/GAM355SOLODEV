@@ -24,8 +24,8 @@ public class playerMovement : MonoBehaviour
     Vector3 targetRotation; //Rotation endpoint
     bool moving; //Checks if player is in motion
   
-    public static playerMovement instance;
-    private void Awake()
+    public static playerMovement instance; //instance?? the fuck is this 
+    private void Awake() //Data persistence method (Needs to be more dynamic. Issues with persisting where it shouldn't)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (instance == null)
@@ -38,7 +38,7 @@ public class playerMovement : MonoBehaviour
             
             Destroy(gameObject);
         }
-      else if (SceneManager.GetActiveScene().name == "mainMenu")
+      else if (SceneManager.GetActiveScene().name == "mainMenu") 
         {
             
             Destroy(gameObject);
@@ -47,14 +47,7 @@ public class playerMovement : MonoBehaviour
      
 
     }
-    private void Start()
-    {
-      
-
-        
-        //DontDestroyOnLoad(playerPos);
-    }
-
+  
     void Update()
     {//IF THE SCENE IS CURRENTLY THE FIRST DUNGEON, THE PLAYER CAN MOVE MIGHT NEED TO MAKE THIS OBJECT PERSIST BETWEEN SCENES TOO. SINCE TRANSFORMS TECHNICALLY CANT BE SAVED
 
